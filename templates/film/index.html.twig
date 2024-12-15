@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Film index{% endblock %}
+
+{% block body %}
+    <div style="position: absolute; top: 0; right: 0; margin: 1em;">
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+    </div>
+    
+    <h1>Film index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Realisateur</th>
+                <th>Nom</th>
+                <th>Annee_sortie</th>
+                <th>Genre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for film in films %}
+            <tr>
+                <td>{{ film.Realisateur.Nom ~ ' ' ~ film.Realisateur.Prenom }}</td>
+                <td>{{ film.Nom }}</td>
+                <td>{{ film.anneeSortie }}</td>
+                <td>{{ film.Genre }}</td>
+                <td>
+                    <a href="{{ path('app_film_show', {'id': film.id}) }}">show</a>
+                    <a href="{{ path('app_film_edit', {'id': film.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_film_new') }}"><button>Ajouter un nouveau film</button></a>
+    <br>
+    <a href="{{ path('app_home_page') }}">Retour à la page d'accueil</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Film{% endblock %}
+
+{% block body %}
+    <div style="position: absolute; top: 0; right: 0; margin: 1em;">
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+    </div>
+    
+    <h1>Create new Film</h1>
+
+    {{ include('film/_form.html.twig') }}
+
+    <a href="{{ path('app_film_index') }}">back to list</a>
+{% endblock %}
