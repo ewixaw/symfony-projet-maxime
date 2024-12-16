@@ -4,14 +4,15 @@
 
 {% block body %}
     <div style="position: absolute; top: 0; right: 0; margin: 1em;">
-        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Se déconnecter</a>
     </div>
     
     <h1>Edit Realisateur</h1>
 
-    {{ include('realisateur/_form.html.twig', {'button_label': 'Update'}) }}
+    <div style="display: flex;">
+        {{ include('realisateur/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        {{ include('realisateur/_delete_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('app_realisateur_index') }}">back to list</a>
-
-    {{ include('realisateur/_delete_form.html.twig') }}
+    <a href="{{ path('app_realisateur_index') }}" style="font-size: 0.8em; color:black;">Retour à la liste</a>
 {% endblock %}

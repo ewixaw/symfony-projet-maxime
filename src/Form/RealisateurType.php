@@ -12,9 +12,18 @@ class RealisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nom')
-            ->add('Prenom')
-            ->add('Origine')
+            ->add('Nom', null, [
+                'label' => 'Nom du Réalisateur : ',
+                'attr' => [ 'style' => 'font-size: 1em; margin-bottom: 0.8em;' ]
+            ])
+            ->add('Prenom', null, [
+                'label' => 'Prenom du Réalisateur : ',
+                'attr' => [ 'style' => 'font-size: 1em; margin-bottom: 0.8em;' ]
+            ])
+            ->add('Origine', null, [
+                'label' => 'Origine du Réalisateur : ',
+                'attr' => [ 'style' => 'font-size: 1em; margin-bottom: 0.8em;' ]
+            ])
         ;
     }
 

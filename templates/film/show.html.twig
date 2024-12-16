@@ -4,7 +4,7 @@
 
 {% block body %}
     <div style="position: absolute; top: 0; right: 0; margin: 1em;">
-        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Se déconnecter</a>
     </div>
     
     <h1>Film</h1>
@@ -12,27 +12,24 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ film.id }}</td>
+                <th style="text-align: left; padding: 0.2em;">Nom : </th>
+                <td style="text-align: left; padding: 0.2em;">{{ film.Nom }}</td>
             </tr>
             <tr>
-                <th>Nom</th>
-                <td>{{ film.Nom }}</td>
+                <th style="text-align: left; padding: 0.2em;">Annee de sortie : </th>
+                <td style="text-align: left; padding: 0.2em;">{{ film.anneeSortie }}</td>
             </tr>
             <tr>
-                <th>Annee_sortie</th>
-                <td>{{ film.anneeSortie }}</td>
-            </tr>
-            <tr>
-                <th>Genre</th>
-                <td>{{ film.Genre }}</td>
+                <th style="text-align: left; padding: 0.2em;">Genre : </th>
+                <td style="text-align: left; padding: 0.2em;">{{ film.Genre }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_film_index') }}">back to list</a>
+    <div style="display: flex;">
+        <a href="{{ path('app_film_edit', {'id': film.id}) }}"><button style="font-size: 1.2em; margin-bottom: 0.2em; margin-top: 1em;">Editer</button></a>
+        {{ include('film/_delete_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('app_film_edit', {'id': film.id}) }}">edit</a>
-
-    {{ include('film/_delete_form.html.twig') }}
+    <a href="{{ path('app_film_index') }}" style="font-size: 0.8em; color:black;">Retour à la listet</a>
 {% endblock %}

@@ -1,32 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Realisateur index{% endblock %}
+{% block title %}Liste des Realisateurs{% endblock %}
 
 {% block body %}
+    <div style="font-size: 1.2em;">
+
     <div style="position: absolute; top: 0; right: 0; margin: 1em;">
-        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Se déconnecter</a>
     </div>
     
-    <h1>Realisateur index</h1>
+    <h1>Liste des Realisateurs</h1>
 
-    <table class="table">
+    <table class="table" style="border-collapse: collapse; margin-bottom: 1em">
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Origine</th>
-                <th>actions</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">Nom</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">Prenom</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">Origine</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">actions</th>
             </tr>
         </thead>
         <tbody>
         {% for realisateur in realisateurs %}
             <tr>
-                <td>{{ realisateur.Nom }}</td>
-                <td>{{ realisateur.Prenom }}</td>
-                <td>{{ realisateur.Origine }}</td>
-                <td>
-                    <a href="{{ path('app_realisateur_show', {'id': realisateur.id}) }}">show</a>
-                    <a href="{{ path('app_realisateur_edit', {'id': realisateur.id}) }}">edit</a>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">{{ realisateur.Nom }}</td>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">{{ realisateur.Prenom }}</td>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">{{ realisateur.Origine }}</td>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">
+                    <a href="{{ path('app_realisateur_show', {'id': realisateur.id}) }}">Développer</a>
+                    <b> | </b>
+                    <a href="{{ path('app_realisateur_edit', {'id': realisateur.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -37,7 +40,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_realisateur_new') }}"><button>Ajouter un nouveau realisateur</button></a>
+    <a href="{{ path('app_realisateur_new') }}"><button style="font-size: 1.2em; margin-bottom: 0.2em;">Ajouter un nouveau realisateur</button></a>
     <br>
-    <a href="{{ path('app_home_page') }}">Retour à la page d'accueil</a>
+    <a href="{{ path('app_home_page') }}" style="font-size: 0.8em; color:black;">Retour à la page d'accueil</a>
+    </div>
 {% endblock %}

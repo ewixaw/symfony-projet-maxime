@@ -4,14 +4,13 @@
 
 {% block body %}
     <div style="position: absolute; top: 0; right: 0; margin: 1em;">
-        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Se déconnecter</a>
     </div>
 
     <h1>Edit Film</h1>
 
-    {{ include('film/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_film_index') }}">back to list</a>
-
+    {{ include('film/_form.html.twig', {'button_label': 'Mettre à jour', 'button_style': 'style="font-size: 1.2em; margin-bottom: 0.2em; display: flex"'}) }}
     {{ include('film/_delete_form.html.twig') }}
+
+    <a href="{{ path('app_film_index') }}" style="font-size: 0.8em; color:black;">Retour à la liste</a>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomePageController!{% endblock %}
+{% block title %}Bienvenue !{% endblock %}
 
 {% block body %}
 <style>
@@ -8,16 +8,16 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
+<div class="example-wrapper" style="font-size: 1.2em;">
     <div style="position: absolute; top: 0; right: 0; margin: 1em;">
-        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Se déconnecter</a>
     </div>
 
     <h1>Bienvenue !</h1>
     <p>Ceci est la page d'accueil, elle vous permettra d'accéder à la page d'administration des Réalisateurs et à la page d'administration des Films</p> 
-    <ul>
-        <li><a href="{{ path('app_realisateur_index') }}"><button>Page des Realisateurs</button></a></li>
-        <li><a href="{{ path('app_film_index') }}"><button>Page des Films</button></a></li>
+    <ul style="list-style-type: none; display: flex; justify-content: sflex-start; padding-left: 0;">
+        <li><a href="{{ path('app_realisateur_index') }}"><button style="font-size: 1.2em; margin: 1em; margin-left: 0;">Page des Realisateurs</button></a></li>
+        <li><a href="{{ path('app_film_index') }}"><button style="font-size: 1.2em; margin: 1em; margin-left: 0;">Page des Films</button></a></li>
     </ul>
 </div>
 {% endblock %}

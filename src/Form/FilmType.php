@@ -16,21 +16,25 @@ class FilmType extends AbstractType
         $builder
             ->add('realisateur', EntityType::class, [
                 'class' => Realisateur::class,
-                'label' => 'Realisateur : ',
+                'label' => 'Realisateur :    ',
                 'choice_label' => function (Realisateur $realisateur) {
                     return $realisateur->getNom() . ' ' . $realisateur->getPrenom();
                 }, 
                 'placeholder' => 'Choisir un réalisateur',
-                'required' => true
+                'required' => true,
+                'attr' => [ 'style' => 'font-size: 1em; margin-bottom: 0.8em;' ]
             ])
             ->add('Nom', null, [
-                'label' => 'Nom du Film : '
+                'label' => 'Nom du Film : ',
+                'attr' => [ 'style' => 'font-size: 1em; margin-bottom: 0.8em;' ]
             ])
             ->add('annee_sortie', null, [
-                'label' => 'Anne du sortie : '
+                'label' => 'Anne du sortie : ',
+                'attr' => [ 'style' => 'font-size: 1em; margin-bottom: 0.8em;' ]
             ])
             ->add('Genre', null, [
-                'label' => 'Genre du Film : '
+                'label' => 'Genre du Film : ',
+                'attr' => [ 'style' => 'font-size: 1em; margin-bottom: 1em;' ]
             ])
         ;
     }

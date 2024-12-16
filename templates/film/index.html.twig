@@ -1,34 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Film index{% endblock %}
+{% block title %}Liste des Films{% endblock %}
 
 {% block body %}
+    <div style="font-size: 1.2em;">
     <div style="position: absolute; top: 0; right: 0; margin: 1em;">
-        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Se déconnecter</a>
     </div>
     
-    <h1>Film index</h1>
+    <h1>Liste des Films</h1>
 
-    <table class="table">
+    <table class="table" style="border-collapse: collapse; margin-bottom: 1em">
         <thead>
             <tr>
-                <th>Realisateur</th>
-                <th>Nom</th>
-                <th>Annee_sortie</th>
-                <th>Genre</th>
-                <th>actions</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">Realisateur</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">Nom</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">Annee_sortie</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">Genre</th>
+                <th style="border: 1px solid black; text-align: center; padding: 0.5em;">actions</th>
             </tr>
         </thead>
         <tbody>
         {% for film in films %}
             <tr>
-                <td>{{ film.Realisateur.Nom ~ ' ' ~ film.Realisateur.Prenom }}</td>
-                <td>{{ film.Nom }}</td>
-                <td>{{ film.anneeSortie }}</td>
-                <td>{{ film.Genre }}</td>
-                <td>
-                    <a href="{{ path('app_film_show', {'id': film.id}) }}">show</a>
-                    <a href="{{ path('app_film_edit', {'id': film.id}) }}">edit</a>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">{{ film.Realisateur.Nom ~ ' ' ~ film.Realisateur.Prenom }}</td>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">{{ film.Nom }}</td>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">{{ film.anneeSortie }}</td>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">{{ film.Genre }}</td>
+                <td style="border: 1px solid black; text-align: center; padding: 0.5em;">
+                    <a href="{{ path('app_film_show', {'id': film.id}) }}">Développer</a>
+                    <b> | </b>
+                    <a href="{{ path('app_film_edit', {'id': film.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -39,7 +41,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_film_new') }}"><button>Ajouter un nouveau film</button></a>
+    <a href="{{ path('app_film_new') }}"><button style="font-size: 1.2em; margin-bottom: 0.2em;">Ajouter un nouveau film</button></a>
     <br>
-    <a href="{{ path('app_home_page') }}">Retour à la page d'accueil</a>
+    <a href="{{ path('app_home_page') }}" style="font-size: 0.8em; color:black;">Retour à la page d'accueil</a>
+    </div>
 {% endblock %}

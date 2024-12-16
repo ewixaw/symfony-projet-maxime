@@ -4,7 +4,7 @@
 
 {% block body %}
     <div style="position: absolute; top: 0; right: 0; margin: 1em;">
-        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Logout</a>
+        <a href="{{ path('app_logout') }}" style="text-decoration: none; font-size: 16px;">Se déconnecter</a>
     </div>
     
     <h1>Realisateur</h1>
@@ -12,27 +12,24 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ realisateur.id }}</td>
+                <th style="text-align: left; padding: 0.2em;">Nom : </th>
+                <td style="text-align: left; padding: 0.2em;">{{ realisateur.Nom }}</td>
             </tr>
             <tr>
-                <th>Nom</th>
-                <td>{{ realisateur.Nom }}</td>
+                <th style="text-align: left; padding: 0.2em;">Prenom : </th>
+                <td style="text-align: left; padding: 0.2em;">{{ realisateur.Prenom }}</td>
             </tr>
             <tr>
-                <th>Prenom</th>
-                <td>{{ realisateur.Prenom }}</td>
-            </tr>
-            <tr>
-                <th>Origine</th>
-                <td>{{ realisateur.Origine }}</td>
+                <th style="text-align: left; padding: 0.2em;">Origine : </th>
+                <td style="text-align: left; padding: 0.2em;">{{ realisateur.Origine }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_realisateur_index') }}">back to list</a>
+    <div style="display: flex;">
+        <a href="{{ path('app_realisateur_edit', {'id': realisateur.id}) }}"><button style="font-size: 1.2em; margin-bottom: 0.2em; margin-top: 1em;">Editer</button></a>
+        {{ include('realisateur/_delete_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('app_realisateur_edit', {'id': realisateur.id}) }}">edit</a>
-
-    {{ include('realisateur/_delete_form.html.twig') }}
+    <a href="{{ path('app_realisateur_index') }}" style="font-size: 0.8em; color:black;">Retour à la liste</a>
 {% endblock %}
